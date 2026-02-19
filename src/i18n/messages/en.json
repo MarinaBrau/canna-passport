@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "countries": "Destinations",
+    "glossary": "Glossary",
+    "language": "PT"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Your guide to legal cannabis tourism",
+      "headline": "Explore the world safely and knowledgeably",
+      "subheadline": "Complete guide to laws, destinations and practical tips for tourists in countries with legal cannabis.",
+      "cta": "See destinations",
+      "emailPlaceholder": "Your email",
+      "emailButton": "Keep me updated",
+      "emailSuccess": "Subscribed! We'll notify you when new content arrives.",
+      "disclaimer": "Informational only. No spam."
+    },
+    "map": {
+      "title": "Destination Map",
+      "subtitle": "Click a country to see the full guide"
+    },
+    "featured": {
+      "title": "Featured Destinations",
+      "subtitle": "The most complete guides for tourists"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": {
+        "title": "Choose your destination",
+        "description": "Browse the map or list and find countries with legal cannabis."
+      },
+      "step2": {
+        "title": "Read the guide",
+        "description": "Understand the laws, limits and where to consume safely."
+      },
+      "step3": {
+        "title": "Travel with confidence",
+        "description": "Enjoy the experience knowing exactly what is allowed."
+      }
+    }
+  },
+  "countries": {
+    "title": "All Destinations",
+    "subtitle": "Complete guides for countries with legal or decriminalized cannabis",
+    "filterAll": "All",
+    "filterLegal": "Legal",
+    "filterDecriminalized": "Decriminalized",
+    "filterMedicinal": "Medicinal",
+    "comingSoon": "Coming soon",
+    "readGuide": "Read guide"
+  },
+  "legal": {
+    "legal": "Legal",
+    "decriminalized": "Decriminalized",
+    "medicinal": "Medicinal"
+  },
+  "footer": {
+    "disclaimer": "This site is an informational guide. Laws change — always verify local regulations before traveling. We do not encourage the consumption of controlled substances.",
+    "ageWarning": "19+ only",
+    "rights": "All rights reserved."
+  }
+}

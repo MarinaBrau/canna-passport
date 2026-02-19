@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "countries": "Destinos",
+    "glossary": "Glossário",
+    "language": "EN"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Seu guia para o turismo de cannabis legal",
+      "headline": "Explore o mundo com segurança e conhecimento",
+      "subheadline": "Guia completo de leis, destinos e dicas práticas para turistas em países com cannabis legal.",
+      "cta": "Ver destinos",
+      "emailPlaceholder": "Seu e-mail",
+      "emailButton": "Quero novidades",
+      "emailSuccess": "Inscrito com sucesso! Te avisamos quando novidades chegarem.",
+      "disclaimer": "Apenas informativo. Sem spam."
+    },
+    "map": {
+      "title": "Mapa de Destinos",
+      "subtitle": "Clique em um país para ver o guia completo"
+    },
+    "featured": {
+      "title": "Destinos em Destaque",
+      "subtitle": "Os guias mais completos para turistas brasileiros"
+    },
+    "howItWorks": {
+      "title": "Como Funciona",
+      "step1": {
+        "title": "Escolha seu destino",
+        "description": "Navegue pelo mapa ou lista e encontre países com cannabis legal."
+      },
+      "step2": {
+        "title": "Leia o guia",
+        "description": "Entenda as leis, limites e onde consumir com segurança."
+      },
+      "step3": {
+        "title": "Viaje tranquilo",
+        "description": "Aproveite a experiência sabendo exatamente o que é permitido."
+      }
+    }
+  },
+  "countries": {
+    "title": "Todos os Destinos",
+    "subtitle": "Guias completos para países com cannabis legal ou descriminalizado",
+    "filterAll": "Todos",
+    "filterLegal": "Legal",
+    "filterDecriminalized": "Descriminalizado",
+    "filterMedicinal": "Medicinal",
+    "comingSoon": "Em breve",
+    "readGuide": "Ver guia"
+  },
+  "legal": {
+    "legal": "Legal",
+    "decriminalized": "Descriminalizado",
+    "medicinal": "Medicinal"
+  },
+  "footer": {
+    "disclaimer": "Este site é um guia informativo. As leis mudam — verifique sempre as regulamentações locais antes de viajar. Não incentivamos o consumo de substâncias controladas.",
+    "ageWarning": "+19 anos",
+    "rights": "Todos os direitos reservados."
+  }
+}

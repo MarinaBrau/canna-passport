@@ -1,26 +1,115 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #04090a;
+  --foreground: #dff0e8;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Canna Passport tokens */
+  --cp-bg:           #04090a;
+  --cp-bg-surface:   #071208;
+  --cp-bg-elevated:  #0c1a0f;
+  --cp-accent:       #00d97a;
+  --cp-accent-hi:    #00ff8e;
+  --cp-accent-dim:   rgba(0, 217, 122, 0.55);
+  --cp-accent-ghost: rgba(0, 217, 122, 0.07);
+  --cp-accent-border:rgba(0, 217, 122, 0.14);
+  --cp-text:         #dff0e8;
+  --cp-text-muted:   rgba(180, 218, 196, 0.72);
+  --cp-text-dim:     rgba(160, 200, 176, 0.40);
+  --cp-border:       rgba(0, 217, 122, 0.10);
+  --cp-amber:        #f59e0b;
+  --cp-blue:         #60a5fa;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cp-bg);
+  color: var(--cp-text);
+}
+
+/* ── Keyframes ─────────────────────────────────────── */
+
+@keyframes cp-dot-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.28; }
+}
+
+@keyframes cp-glow-breathe {
+  0%, 100% { opacity: 0.22; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 0.40; transform: translateX(-50%) scale(1.14); }
+}
+
+@keyframes cp-glow-breathe-side {
+  0%, 100% { opacity: 0.08; transform: scale(1); }
+  50%       { opacity: 0.15; transform: scale(1.1); }
+}
+
+@keyframes cp-scroll-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes cp-ring-expand {
+  0%   { transform: scale(1);   opacity: 0.75; }
+  100% { transform: scale(3.8); opacity: 0; }
+}
+
+@keyframes cp-dash-flow {
+  from { background-position: 0 0; }
+  to   { background-position: -80px 0; }
+}
+
+@keyframes cp-slide-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cp-slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cp-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes cp-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes cp-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+@keyframes cp-spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Utility classes ───────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.cp-text-gradient {
+  background: linear-gradient(155deg, #ffffff 0%, #c8f0da 35%, #00d97a 75%, #00a85e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
