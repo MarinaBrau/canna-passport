@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const geist = Geist({
@@ -70,6 +71,7 @@ export default function RootLayout({
       <body className="antialiased font-sans" style={{ background: "#04090a", color: "#dff0e8" }}>
         {children}
       </body>
+      <GoogleAnalytics gaId="G-435JMCK4L0" />
     </html>
   );
 }
