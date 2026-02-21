@@ -264,23 +264,6 @@ export default async function CountryPage({
               <MDXRemote source={country.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
             </div>
 
-            {/* FAQ section (visual, rendered from frontmatter) */}
-            {country.faqs && country.faqs.length > 0 && (
-              <section className="mt-10 pt-8 border-t border-zinc-100">
-                <h2 className="text-lg font-semibold text-zinc-900 mb-5">
-                  {isPt ? "Perguntas Frequentes" : "Frequently Asked Questions"}
-                </h2>
-                <dl className="space-y-5">
-                  {country.faqs.map(({ q, a }, i) => (
-                    <div key={i}>
-                      <dt className="font-medium text-zinc-900 mb-1">{q}</dt>
-                      <dd className="text-sm text-zinc-600 leading-relaxed">{a}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </section>
-            )}
-
             {/* Tours section */}
             <ToursSection countrySlug={slug} locale={locale} />
 

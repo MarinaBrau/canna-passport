@@ -274,19 +274,6 @@ export function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
-
-            <Link
-              href="/glossary"
-              className="hero-btn-ghost inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm"
-              style={{
-                background: "rgba(255, 255, 255, 0.04)",
-                border: "1px solid rgba(255, 255, 255, 0.12)",
-                color: "rgba(180, 218, 196, 0.70)",
-                minHeight: "44px",
-              }}
-            >
-              Glossário PT-EN
-            </Link>
           </div>
 
           {/* Stats strip */}
@@ -317,22 +304,6 @@ export function Hero() {
 
         </div>
 
-        {/* Scroll indicator */}
-        <div
-          className="absolute bottom-8 left-1/2 hero-scroll"
-          style={{ transform: "translateX(-50%)" }}
-          aria-hidden="true"
-        >
-          <div
-            className="w-5 h-8 rounded-full flex items-start justify-center p-1.5"
-            style={{ border: "1px solid rgba(0, 217, 122, 0.18)" }}
-          >
-            <div
-              className="w-1 h-2 rounded-full"
-              style={{ background: "rgba(0, 217, 122, 0.65)" }}
-            />
-          </div>
-        </div>
       </section>
     </>
   );

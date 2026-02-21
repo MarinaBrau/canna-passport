@@ -120,7 +120,7 @@ export function TourCard({ tour, locale, compact = false }: Props) {
         <span
           style={{
             fontSize: "11px",
-            color: "rgba(160,200,176,0.55)",
+            color: "rgba(180,220,200,0.72)",
           }}
         >
           📍 {tour.city}
@@ -146,8 +146,8 @@ export function TourCard({ tour, locale, compact = false }: Props) {
           style={{
             margin: 0,
             fontSize: "13px",
-            color: "rgba(160,200,176,0.65)",
-            lineHeight: "1.55",
+            color: "rgba(210,235,220,0.88)",
+            lineHeight: "1.6",
           }}
         >
           {description}
@@ -160,8 +160,8 @@ export function TourCard({ tour, locale, compact = false }: Props) {
           style={{
             margin: 0,
             fontSize: compact ? "12px" : "13px",
-            color: "rgba(160,200,176,0.60)",
-            lineHeight: "1.55",
+            color: "rgba(200,228,212,0.82)",
+            lineHeight: "1.6",
             fontStyle: "italic",
           }}
         >
@@ -179,12 +179,12 @@ export function TourCard({ tour, locale, compact = false }: Props) {
           }}
         >
           {tour.duration !== "—" && (
-            <span style={{ fontSize: "12px", color: "rgba(160,200,176,0.55)" }}>
+            <span style={{ fontSize: "12px", color: "rgba(180,220,200,0.75)" }}>
               ⏱ {tour.duration}
             </span>
           )}
           {tour.priceRange !== "—" && (
-            <span style={{ fontSize: "12px", color: "rgba(160,200,176,0.55)" }}>
+            <span style={{ fontSize: "12px", color: "rgba(180,220,200,0.75)" }}>
               💳 {tour.priceRange}
             </span>
           )}
