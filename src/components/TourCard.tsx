@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import type { Tour, TourType, TourPlatform } from "@/lib/tours-data";
+import { getCountryName } from "@/lib/country-names";
 
 const TYPE_COLORS: Record<TourType, string> = {
   "walking-tour": "#00d97a",
@@ -123,7 +124,7 @@ export function TourCard({ tour, locale, compact = false }: Props) {
             color: "rgba(180,220,200,0.72)",
           }}
         >
-          📍 {tour.city}
+          📍 {tour.city ? `${tour.city}, ` : ""}{getCountryName(tour.countrySlug, locale)}
         </span>
       </div>
 

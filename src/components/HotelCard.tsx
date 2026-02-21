@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import type { Hotel, HotelType, HotelPlatform } from "@/lib/hotels-data";
+import { getCountryName } from "@/lib/country-names";
 
 const TYPE_COLORS: Record<HotelType, string> = {
   hotel: "#00d97a",
@@ -109,16 +110,14 @@ export function HotelCard({ hotel, locale, compact = false }: Props) {
           {typeLabel}
         </span>
 
-        {hotel.city && (
-          <span
-            style={{
-              fontSize: "11px",
-              color: "rgba(180,220,200,0.72)",
-            }}
-          >
-            📍 {hotel.city}
-          </span>
-        )}
+        <span
+          style={{
+            fontSize: "11px",
+            color: "rgba(180,220,200,0.72)",
+          }}
+        >
+          📍 {hotel.city ? `${hotel.city}, ` : ""}{getCountryName(hotel.countrySlug, locale)}
+        </span>
       </div>
 
       {/* Hotel name */}
