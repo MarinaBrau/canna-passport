@@ -80,6 +80,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
+  const glossaryEntries: MetadataRoute.Sitemap = LOCALES.map((locale) => ({
+    url: `${BASE_URL}/${locale}/glossary`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+    alternates: {
+      languages: {
+        pt: `${BASE_URL}/pt/glossary`,
+        en: `${BASE_URL}/en/glossary`,
+      },
+    },
+  }));
+
   const legalEntries: MetadataRoute.Sitemap = (["privacy", "terms"] as const).flatMap(
     (slug) =>
       LOCALES.map((locale) => ({
@@ -96,5 +109,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
   );
 
-  return [...homepageEntries, ...countriesListEntries, ...toursEntries, ...hotelsEntries, ...countryEntries, ...legalEntries];
+  return [...homepageEntries, ...countriesListEntries, ...toursEntries, ...hotelsEntries, ...glossaryEntries, ...countryEntries, ...legalEntries];
 }
