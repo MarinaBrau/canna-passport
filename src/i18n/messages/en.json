@@ -108,6 +108,7 @@
     "viewAll": "See all tours",
     "noTours": "No specific cannabis tours available for tourists in this destination.",
     "disclaimer": "We may earn a commission on bookings made via our links, at no extra cost to you.",
+    "filterLabel": "Filter by country",
     "filterAll": "All countries",
     "types": {
       "walking-tour": "Walking Tour",
@@ -127,6 +128,7 @@
     "viewAll": "See all hotels",
     "noHotels": "No verified cannabis-friendly hotels in this destination.",
     "disclaimer": "We may earn a commission on bookings made via our links, at no extra cost to you.",
+    "filterLabel": "Filter by country",
     "filterAll": "All countries",
     "types": {
       "hotel": "Hotel",

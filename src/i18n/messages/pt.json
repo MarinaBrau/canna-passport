@@ -108,6 +108,7 @@
     "viewAll": "Ver todos os passeios",
     "noTours": "Sem passeios específicos disponíveis para turistas neste destino.",
     "disclaimer": "Podemos receber comissão em reservas feitas via nossos links, sem custo adicional para você.",
+    "filterLabel": "Filtrar por país",
     "filterAll": "Todos os países",
     "types": {
       "walking-tour": "Tour a pé",
@@ -127,6 +128,7 @@
     "viewAll": "Ver todos os hotéis",
     "noHotels": "Sem hotéis cannabis-friendly verificados neste destino.",
     "disclaimer": "Podemos receber comissão em reservas feitas via nossos links, sem custo adicional para você.",
+    "filterLabel": "Filtrar por país",
     "filterAll": "Todos os países",
     "types": {
       "hotel": "Hotel",

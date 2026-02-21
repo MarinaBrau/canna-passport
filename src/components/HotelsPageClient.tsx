@@ -80,7 +80,7 @@ export function HotelsPageClient({ allHotels, locale, countries }: Props) {
             marginBottom: "8px",
           }}
         >
-          {t("filterAll")}
+          {t("filterLabel")}
         </label>
         <select
           className="hotels-select"
