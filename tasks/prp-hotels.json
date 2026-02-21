@@ -1,0 +1,224 @@
+{
+  "project": {
+    "name": "canna-passport",
+    "description": "Hotéis cannabis-friendly por país — seção em cada guia + página /hotels + links de afiliado Booking.com",
+    "branchName": "feat/hotels"
+  },
+  "features": [
+    {
+      "id": "F1",
+      "name": "Hotéis Cannabis-Friendly",
+      "description": "Dados curados de hotéis cannabis-friendly com cards, seção nas páginas de país e página /hotels com filtro",
+      "priority": 1,
+      "tasks": [
+        {
+          "id": "F1-T1",
+          "title": "Criar src/lib/hotels-data.ts com tipos e dados de todos os países",
+          "description": "Definir tipos TypeScript (Hotel, HotelLink, HotelType, HotelPlatform) e exportar array HOTELS com todos os hotéis pesquisados, além das funções utilitárias getHotelsForCountry(slug) e getAllHotels().",
+          "priority": 1,
+          "passes": false,
+          "context": {
+            "files": ["src/lib/tours-data.ts", "src/lib/countries.ts"],
+            "libraries": [],
+            "hints": [
+              "Seguir exatamente o mesmo padrão de tours-data.ts",
+              "HotelType: 'hotel' | 'hostel' | 'bnb' | 'apartment' | 'resort' | 'editorial'",
+              "HotelPlatform: 'booking' | 'direct'",
+              "HotelLink: { platform: HotelPlatform; url: string; label?: string }",
+              "Hotel: { id, countrySlug, city, name:{pt,en}, description:{pt,en}, type:HotelType, priceRange:string, links:HotelLink[], highlighted:boolean, warning?:{pt,en} }",
+              "getHotelsForCountry(slug: string): Hotel[] — filtra por countrySlug",
+              "getAllHotels(): Hotel[] — retorna todos",
+              "Links Booking.com: https://www.booking.com + slug + ?aid=YOUR_BOOKING_AID",
+              "CANADA: Sir Sam's Inn & Spa (booking: /hotel/ca/sir-sam-39-s-inn-amp-spa.html, $130-180, resort, highlighted:true) + Cannabis Air Hotel Toronto (direct: https://budhub.ca/listing/cannabis-air-luxury-hotel-toronto/, $149, hotel, highlighted:false)",
+              "NETHERLANDS: The Bulldog Hotel (direct: https://bulldoghotel.com, €59-120, hostel, highlighted:true) + RedLight District Studio (booking: /hotel/nl/redlight-district-private-smokers-friendly-studio.html, €190-275, apartment, highlighted:true)",
+              "USA: 420 Friendly BnB Denver (booking: /hotel/us/cannabis-friendly-bnb-minutes-from-downtown-denver-and-red-rocks.html, $80-130, bnb, highlighted:true) + The Ganja Getaway Colorado Springs (booking: /hotel/us/the-ganja-getaway.html, $90-150, bnb, highlighted:true) + Hotel Kabuki SF (booking: /hotel/us/miyako.html, $200-280, hotel, highlighted:true) + Noe's Nest B&B SF (booking: /hotel/us/noe-39-s-nest-bed-and-breakfast.html, $120-180, bnb, highlighted:false)",
+              "URUGUAY: THC Hostel La Barra (booking: /hotel/uy/thc-hostel-la-barra.html, $10-43, hostel, highlighted:true, warning: turistas nao podem comprar legalmente)",
+              "COLOMBIA: Cannabis Retreat Medellín (direct: https://cannabisretreatmedellincolombia.com, $200+, resort, highlighted:true)",
+              "THAILAND: Rent V38 Bangkok (booking: /hotel/th/rent-v38.html, $41-57, hotel, highlighted:true, warning: uso recreativo restrito desde 2025 — verificar situacao atual)",
+              "GERMANY: editorial (type:'editorial', sem links — mercado em formacao pos-legalizacao 2024, mencionar budandbreakfast.com/property-region/germany)",
+              "PORTUGAL: editorial (type:'editorial', sem links — ambiente tolerante mas informal, mencionar budandbreakfast.com)",
+              "SPAIN: editorial (type:'editorial', sem links — zona cinzenta legal impede hoteis de ter politica explicita, bairros Eixample/Gracia/El Raval sao mais tolerantes)",
+              "MALTA: editorial (type:'editorial', sem links — acesso legal restrito a residentes)"
+            ]
+          },
+          "acceptance": [
+            "Arquivo src/lib/hotels-data.ts criado e exporta tipos Hotel, HotelLink, HotelType, HotelPlatform",
+            "Array HOTELS exportado com mínimo de 9 hotéis reais + 4 entradas editoriais (DE, PT, ES, MT)",
+            "Função getHotelsForCountry(slug) retorna hotéis filtrados por país",
+            "Função getAllHotels() retorna todos os hotéis",
+            "Links Booking.com incluem ?aid=YOUR_BOOKING_AID",
+            "Hotéis de Uruguai e Tailândia têm campo warning preenchido",
+            "Países sem hotéis verificados (DE, PT, ES, MT) têm entrada editorial",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npx tsc --noEmit"
+          }
+        },
+        {
+          "id": "F1-T2",
+          "title": "Adicionar chaves de i18n para hotéis em pt.json e en.json",
+          "description": "Adicionar namespace 'hotels' nos arquivos de mensagem PT e EN com todas as strings necessárias, além de adicionar 'hotels' ao nav e footer.",
+          "priority": 2,
+          "passes": false,
+          "context": {
+            "files": ["src/i18n/messages/pt.json", "src/i18n/messages/en.json"],
+            "libraries": [],
+            "hints": [
+              "Seguir exatamente o mesmo padrão do namespace 'tours' já existente",
+              "Adicionar em nav: { ..., 'hotels': 'Hotéis' } em pt.json e { ..., 'hotels': 'Hotels' } em en.json",
+              "Adicionar em footer: { ..., 'hotels': 'Hotéis' } em pt.json e { ..., 'hotels': 'Hotels' } em en.json",
+              "Namespace hotels PT: { title: 'Hotéis Cannabis-Friendly', subtitle: 'Hospedagem cannabis-friendly em cada destino', bookOn: 'Reservar no', viewAll: 'Ver todos os hotéis', noHotels: 'Sem hotéis cannabis-friendly verificados neste destino.', disclaimer: 'Podemos receber comissão em reservas feitas via nossos links, sem custo adicional para você.', filterAll: 'Todos os países', types: { hotel: 'Hotel', hostel: 'Hostel', bnb: 'B&B', apartment: 'Apartamento', resort: 'Resort', editorial: 'Dica editorial' } }",
+              "Namespace hotels EN: { title: 'Cannabis-Friendly Hotels', subtitle: 'Cannabis-friendly accommodation in each destination', bookOn: 'Book on', viewAll: 'See all hotels', noHotels: 'No verified cannabis-friendly hotels in this destination.', disclaimer: 'We may earn a commission on bookings made via our links, at no extra cost to you.', filterAll: 'All countries', types: { hotel: 'Hotel', hostel: 'Hostel', bnb: 'B&B', apartment: 'Apartment', resort: 'Resort', editorial: 'Editorial Note' } }"
+            ]
+          },
+          "acceptance": [
+            "Namespace 'hotels' adicionado em src/i18n/messages/pt.json com todas as chaves",
+            "Namespace 'hotels' adicionado em src/i18n/messages/en.json com todas as chaves",
+            "Chave 'hotels' adicionada em 'nav' em ambos os arquivos",
+            "Chave 'hotels' adicionada em 'footer' em ambos os arquivos",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npx tsc --noEmit"
+          }
+        },
+        {
+          "id": "F1-T3",
+          "title": "Criar componente src/components/HotelCard.tsx",
+          "description": "Criar Server Component HotelCard que exibe um hotel com nome, tipo, cidade, faixa de preço, botão de reserva por plataforma e banner de aviso quando aplicável.",
+          "priority": 3,
+          "passes": false,
+          "context": {
+            "files": ["src/components/TourCard.tsx", "src/lib/hotels-data.ts"],
+            "libraries": [],
+            "hints": [
+              "Server Component — sem 'use client'",
+              "Props: hotel: Hotel, locale: string, compact?: boolean",
+              "Usar getTranslations('hotels') para labels",
+              "Badge por HotelType: hotel=#00d97a, hostel=#60a5fa, bnb=#f59e0b, apartment=#a78bfa, resort=#34d399, editorial=rgba(180,220,200,0.4)",
+              "Badge por plataforma: booking=bg azul (#003580) texto branco label 'Booking.com', direct=borda cinza texto cinza label 'Site oficial'",
+              "Estilo geral igual ao TourCard: fundo rgba(8,18,10,0.85), borda rgba(0,217,122,0.08), border-radius xl",
+              "Se warning: banner âmbar no topo do card com ícone ⚠️",
+              "compact=true: versão menor sem descrição",
+              "Links: target='_blank' rel='noopener noreferrer'",
+              "Exibir nome no idioma correto: hotel.name[locale] || hotel.name.pt"
+            ]
+          },
+          "acceptance": [
+            "Componente src/components/HotelCard.tsx criado como Server Component",
+            "Exibe: nome (locale-aware), badge de tipo, cidade, faixa de preço",
+            "Botão de reserva com badge visual por plataforma (booking=azul, direct=cinza)",
+            "Banner ⚠️ âmbar visível quando hotel.warning existe",
+            "Prop compact=true reduz o layout",
+            "Links com target='_blank' e rel='noopener noreferrer'",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        },
+        {
+          "id": "F1-T4",
+          "title": "Criar HotelsSection e integrar nas páginas de país",
+          "description": "Criar Server Component HotelsSection que exibe até 3 hotéis destacados do país e integrá-lo na página de guia de cada país, logo após ToursSection.",
+          "priority": 4,
+          "passes": false,
+          "context": {
+            "files": ["src/components/ToursSection.tsx", "src/app/[locale]/countries/[slug]/page.tsx", "src/lib/hotels-data.ts", "src/components/HotelCard.tsx"],
+            "libraries": [],
+            "hints": [
+              "Criar src/components/HotelsSection.tsx como Server Component",
+              "Props: countrySlug: string, locale: string",
+              "Chamar getHotelsForCountry(countrySlug) para obter os hotéis",
+              "Filtrar hotels.filter(h => h.highlighted).slice(0, 3) para exibir",
+              "Se type='editorial': exibir parágrafo editorial sem botão de reserva",
+              "Se tem hotéis reais: grid com HotelCard compact=true",
+              "Abaixo dos cards: link 'Ver todos os hotéis em [País]' → /hotels?country=slug",
+              "Usar Link do @/i18n/navigation",
+              "Integrar em src/app/[locale]/countries/[slug]/page.tsx após ToursSection",
+              "Seção com título t('hotels.title') e separador visual"
+            ]
+          },
+          "acceptance": [
+            "Componente src/components/HotelsSection.tsx criado como Server Component",
+            "Exibe até 3 hotéis highlighted com HotelCard compact=true",
+            "Quando type='editorial': exibe nota informativa sem botão de reserva",
+            "Link 'Ver todos' aponta para /hotels?country=slug",
+            "Integrado em [slug]/page.tsx após ToursSection",
+            "Todos os 10 países renderizam sem erro",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        },
+        {
+          "id": "F1-T5",
+          "title": "Criar página /hotels com filtro por país",
+          "description": "Criar página /hotels que lista todos os hotéis com filtro por país via URL searchParam, seguindo o mesmo padrão da página /tours.",
+          "priority": 5,
+          "passes": false,
+          "context": {
+            "files": ["src/app/[locale]/tours/page.tsx", "src/components/ToursPageClient.tsx", "src/lib/hotels-data.ts", "src/components/HotelCard.tsx"],
+            "libraries": [],
+            "hints": [
+              "Criar src/app/[locale]/hotels/page.tsx (Server Component)",
+              "Criar src/components/HotelsPageClient.tsx (Client Component com 'use client') para o filtro",
+              "generateStaticParams retorna [{locale:'pt'},{locale:'en'}]",
+              "generateMetadata PT: 'Hotéis Cannabis-Friendly por País | Canna Passport'",
+              "generateMetadata EN: 'Cannabis-Friendly Hotels by Country | Canna Passport'",
+              "HotelsPageClient recebe: allHotels: Hotel[], locale: string, countries: {slug, name}[] para o dropdown",
+              "Filtro por país via useSearchParams() e router.replace",
+              "Grid 2 colunas (md:3 colunas) com HotelCard",
+              "Disclaimer de afiliados: t('hotels.disclaimer') em itálico abaixo do título",
+              "Estado vazio: t('hotels.noHotels') centralizado",
+              "Hotéis editoriais aparecem com estilo diferente (sem botão de reserva)"
+            ]
+          },
+          "acceptance": [
+            "Rota /pt/hotels e /en/hotels acessíveis e geradas estaticamente",
+            "generateMetadata retorna título e description localizados",
+            "Filtro por país via URL searchParam ?country=slug funciona",
+            "Grid de HotelCard renderiza corretamente",
+            "Disclaimer de afiliados visível abaixo do título",
+            "Estado vazio com mensagem quando filtro não tem resultados",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        },
+        {
+          "id": "F1-T6",
+          "title": "Adicionar Hotels à Navbar, Footer e Sitemap",
+          "description": "Adicionar link /hotels na navbar (desktop + mobile), footer, e as rotas no sitemap.ts.",
+          "priority": 6,
+          "passes": false,
+          "context": {
+            "files": ["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/app/sitemap.ts"],
+            "libraries": [],
+            "hints": [
+              "Navbar desktop: adicionar link Hotels entre Tours e Glossário",
+              "Navbar mobile: adicionar link Hotels com emoji 🏨",
+              "Footer: adicionar Link href='/hotels' com t('footer.hotels') na seção de links Guias",
+              "Usar Link do @/i18n/navigation em ambos",
+              "Sitemap: adicionar /pt/hotels e /en/hotels com priority 0.8 e changeFrequency 'weekly', seguindo o padrão de toursEntries",
+              "i18n já foi adicionado na T2: t('nav.hotels') e t('footer.hotels')"
+            ]
+          },
+          "acceptance": [
+            "Link 'Hotéis' visível na Navbar desktop entre Tours e Glossário",
+            "Link 'Hotéis' visível no menu mobile com emoji 🏨",
+            "Link 'Hotéis' visível no Footer na seção de links",
+            "/pt/hotels e /en/hotels adicionados ao sitemap.ts com priority 0.8",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        }
+      ]
+    }
+  ]
+}

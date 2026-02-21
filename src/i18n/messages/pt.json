@@ -3,6 +3,7 @@
     "countries": "Destinos",
     "glossary": "Glossário",
     "tours": "Tours",
+    "hotels": "Hotéis",
     "language": "EN",
     "ageDisclaimer": "Apenas para maiores de 18 anos"
   },
@@ -93,6 +94,7 @@
     "destinations": "Destinos",
     "glossary": "Glossário",
     "tours": "Tours",
+    "hotels": "Hotéis",
     "ageWarning": "+18 anos",
     "rights": "Todos os direitos reservados.",
     "legal": "Legal",
@@ -115,6 +117,23 @@
       "cooking-class": "Aula de culinária",
       "wellness": "Bem-estar",
       "museum": "Museu",
+      "editorial": "Dica editorial"
+    }
+  },
+  "hotels": {
+    "title": "Hotéis Cannabis-Friendly",
+    "subtitle": "Hospedagem cannabis-friendly em cada destino",
+    "bookOn": "Reservar no",
+    "viewAll": "Ver todos os hotéis",
+    "noHotels": "Sem hotéis cannabis-friendly verificados neste destino.",
+    "disclaimer": "Podemos receber comissão em reservas feitas via nossos links, sem custo adicional para você.",
+    "filterAll": "Todos os países",
+    "types": {
+      "hotel": "Hotel",
+      "hostel": "Hostel",
+      "bnb": "B&B",
+      "apartment": "Apartamento",
+      "resort": "Resort",
       "editorial": "Dica editorial"
     }
   }

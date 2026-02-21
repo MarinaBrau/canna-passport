@@ -67,6 +67,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
+  const hotelsEntries: MetadataRoute.Sitemap = LOCALES.map((locale) => ({
+    url: `${BASE_URL}/${locale}/hotels`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+    alternates: {
+      languages: {
+        pt: `${BASE_URL}/pt/hotels`,
+        en: `${BASE_URL}/en/hotels`,
+      },
+    },
+  }));
+
   const legalEntries: MetadataRoute.Sitemap = (["privacy", "terms"] as const).flatMap(
     (slug) =>
       LOCALES.map((locale) => ({
@@ -83,5 +96,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
   );
 
-  return [...homepageEntries, ...countriesListEntries, ...toursEntries, ...countryEntries, ...legalEntries];
+  return [...homepageEntries, ...countriesListEntries, ...toursEntries, ...hotelsEntries, ...countryEntries, ...legalEntries];
 }

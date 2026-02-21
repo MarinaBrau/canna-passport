@@ -1,0 +1,219 @@
+{
+  "project": {
+    "name": "canna-passport",
+    "description": "Passeios e experiências de cannabis por país — nova página /tours + seção em cada guia de país + links de afiliados GetYourGuide/Viator",
+    "branchName": "feat/tours"
+  },
+  "features": [
+    {
+      "id": "F1",
+      "name": "Tours de Cannabis",
+      "description": "Adicionar passeios disponíveis por país com links de reserva e estrutura para afiliados",
+      "priority": 1,
+      "tasks": [
+        {
+          "id": "F1-T1",
+          "title": "Criar src/lib/tours-data.ts com tipos e dados de todos os países",
+          "description": "Definir os tipos TypeScript (Tour, TourLink, TourType) e exportar o array TOURS com todos os passeios encontrados para os 10 países, além das funções utilitárias getToursForCountry(slug) e getAllTours().",
+          "priority": 1,
+          "passes": false,
+          "context": {
+            "files": ["src/lib/countries.ts", "src/lib/tours-data.ts"],
+            "libraries": [],
+            "hints": [
+              "TourType: 'walking-tour' | 'farm-tour' | 'dispensary-tour' | 'boat-tour' | 'cooking-class' | 'wellness' | 'museum' | 'editorial'",
+              "TourLink: { platform: 'getyourguide' | 'viator' | 'civitatis' | 'direct'; url: string; label?: string }",
+              "Tour: { id, countrySlug, city, name: {pt,en}, description: {pt,en}, type: TourType, duration: string, priceRange: string, links: TourLink[], highlighted: boolean, warning?: {pt,en} }",
+              "getToursForCountry(slug: string): Tour[] — filtra por countrySlug",
+              "getAllTours(): Tour[] — retorna todos",
+              "Tours por país: canada (3), netherlands (3), germany (0, editorial), usa (3), colombia (2), uruguay (2), portugal (0, editorial), spain (1 com warning), malta (1), thailand (3 com warning)",
+              "Canadá: Vancouver Cannabis Tour (GYG), Toronto Cannabis Tour (GYG), Canada High Tours (direct: canadahightours.com)",
+              "Holanda: Coffeeshop Walking Tour (GYG: getyourguide.com/amsterdam-l36/cannabis-tours-tc432/), Private Coffee Shop Tour (GYG), Cannabis Boat Cruise (GYG: getyourguide.com/amsterdam-l36/amsterdam-smoke-friendly-cannabis-cruise-on-cloud-boat-t924596/)",
+              "EUA: Denver Cannabis Tour (GYG: getyourguide.com/colorado-l947/cannabis-tours-tc432/), Las Vegas Cannabis Tour with Weed Lounge & Party Bus (GYG: getyourguide.com/las-vegas-l58/las-vegas-cannabis-tour-with-weed-lounge-party-bus-t536072/), LA Weed Bus (direct: cannabistours.com)",
+              "Colômbia: Cannabis Farm Tour Medellín (GYG: getyourguide.com/colombia-l168994/cannabis-experience-t677512/ + Civitatis: civitatis.com/en/medellin/rionegro-cannabis-tour/), Bogotá Cannabis Tour (Civitatis: civitatis.com/en/bogota/cannabis-tour-bogota/)",
+              "Uruguai: WeedTour VIP 3 dias (direct: weedtour.net/detalhes/vip-tour/), Cannabis Museum Montevidéu (sem reserva online — visita direta)",
+              "Espanha: Barcelona Weed Tour (direct: barcelonaweedtour.com) — adicionar warning sobre zona cinzenta legal",
+              "Malta: Merry-juana Themed Tour Veronika's Adventure €250 5h (direct: veronikasadventure.com/merry-juana-themed-tour/)",
+              "Tailândia: Bangkok Cannabis Tour (direct: bangkokcannabisplaza.com/cannabis-tour/), MJB Farm Chiang Mai (direct: mjbfarm.com), Cannabis Farm from Seed to Smoke (TakeMeTour: takemetour.com/trip/cannabis-farm-tour-from-seed-to-smoke) — todos com warning sobre uso recreacional proibido desde 2024",
+              "Tours editoriais (type: 'editorial') para Alemanha e Portugal sem URL — apenas texto informativo"
+            ]
+          },
+          "acceptance": [
+            "Arquivo src/lib/tours-data.ts criado e exporta tipos Tour, TourLink, TourType",
+            "Array TOURS exportado com mínimo de 15 tours reais + 2 entradas editoriais (DE, PT)",
+            "Função getToursForCountry(slug) retorna tours filtrados por país",
+            "Função getAllTours() retorna todos os tours",
+            "Todos os países têm ao menos 1 entrada (tour ou editorial)",
+            "Tours de Espanha, Tailândia e Alemanha têm campo warning preenchido",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npx tsc --noEmit"
+          }
+        },
+        {
+          "id": "F1-T2",
+          "title": "Adicionar chaves de i18n para tours em pt.json e en.json",
+          "description": "Adicionar namespace 'tours' nos arquivos de mensagem PT e EN com todas as strings necessárias para a feature, além de adicionar 'tours' ao nav e footer.",
+          "priority": 2,
+          "passes": false,
+          "context": {
+            "files": ["src/i18n/messages/pt.json", "src/i18n/messages/en.json"],
+            "libraries": [],
+            "hints": [
+              "Adicionar em nav: { ..., 'tours': 'Tours' } em ambos os arquivos",
+              "Adicionar em footer: { ..., 'tours': 'Tours' } em ambos os arquivos",
+              "Namespace tours PT: { title: 'Passeios e Experiências', subtitle: 'Experiências de cannabis disponíveis para turistas em cada destino', bookOn: 'Reservar em', viewAll: 'Ver todos os passeios', noTours: 'Sem passeios específicos disponíveis para turistas neste destino.', disclaimer: 'Podemos receber comissão em reservas feitas via nossos links, sem custo adicional para você.', filterAll: 'Todos os países', types: { 'walking-tour': 'Tour a pé', 'farm-tour': 'Tour na fazenda', 'dispensary-tour': 'Tour de dispensário', 'boat-tour': 'Passeio de barco', 'cooking-class': 'Aula de culinária', wellness: 'Bem-estar', museum: 'Museu', editorial: 'Dica editorial' } }",
+              "Namespace tours EN: { title: 'Tours & Experiences', subtitle: 'Cannabis experiences available for tourists in each destination', bookOn: 'Book on', viewAll: 'See all tours', noTours: 'No specific cannabis tours available for tourists in this destination.', disclaimer: 'We may earn a commission on bookings made via our links, at no extra cost to you.', filterAll: 'All countries', types: { 'walking-tour': 'Walking Tour', 'farm-tour': 'Farm Tour', 'dispensary-tour': 'Dispensary Tour', 'boat-tour': 'Boat Tour', 'cooking-class': 'Cooking Class', wellness: 'Wellness', museum: 'Museum', editorial: 'Editorial Note' } }"
+            ]
+          },
+          "acceptance": [
+            "Namespace 'tours' adicionado em src/i18n/messages/pt.json com todas as chaves",
+            "Namespace 'tours' adicionado em src/i18n/messages/en.json com todas as chaves",
+            "Chave 'tours' adicionada em 'nav' em ambos os arquivos",
+            "Chave 'tours' adicionada em 'footer' em ambos os arquivos",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npx tsc --noEmit"
+          }
+        },
+        {
+          "id": "F1-T3",
+          "title": "Criar componente src/components/TourCard.tsx",
+          "description": "Criar Server Component TourCard que exibe um tour com nome, tipo, cidade, duração, faixa de preço, botão(ões) de reserva por plataforma e banner de aviso quando aplicável.",
+          "priority": 3,
+          "passes": false,
+          "context": {
+            "files": ["src/components/TourCard.tsx", "src/lib/tours-data.ts", "src/components/FeaturedDestinations.tsx"],
+            "libraries": [],
+            "hints": [
+              "Server Component — sem 'use client'",
+              "Props: tour: Tour, locale: string, compact?: boolean (para ToursSection no país)",
+              "Usar useTranslations('tours') para labels",
+              "Badge por TourType com cores: walking-tour=#00d97a, farm-tour=#f59e0b, dispensary-tour=#34d399, boat-tour=#60a5fa, cooking-class=#fb923c, wellness=#c084fc, museum=#818cf8, editorial=rgba(180,220,200,0.4)",
+              "Badge por plataforma: getyourguide=bg verde escuro texto branco, viator=bg azul texto branco, civitatis=bg laranja texto branco, direct=borda cinza texto cinza",
+              "Estilo geral: fundo rgba(8,18,10,0.85), borda rgba(0,217,122,0.08), border-radius xl, padding 20px",
+              "Se warning: banner no topo do card com fundo rgba(245,158,11,0.08) borda âmbar ícone ⚠️",
+              "Links de reserva: botões pequenos com nome da plataforma, target='_blank' rel='noopener noreferrer'",
+              "compact=true: versão menor sem descrição, altura reduzida",
+              "Exibir nome do tour no idioma correto: tour.name[locale] ou tour.name.pt como fallback"
+            ]
+          },
+          "acceptance": [
+            "Componente src/components/TourCard.tsx criado como Server Component",
+            "Exibe: nome (locale-aware), badge de tipo, cidade, duração, faixa de preço",
+            "Botões de reserva por plataforma com badge visual distinto por plataforma",
+            "Banner de warning visível quando tour.warning existe",
+            "Prop compact=true reduz o layout do card",
+            "Links com target='_blank' e rel='noopener noreferrer'",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        },
+        {
+          "id": "F1-T4",
+          "title": "Criar página src/app/[locale]/tours/page.tsx com filtro por país",
+          "description": "Criar página /tours que lista todos os tours com filtro por país via URL searchParam. A página é Server Component, o filtro é um Client Component que lê/escreve searchParams.",
+          "priority": 4,
+          "passes": false,
+          "context": {
+            "files": ["src/app/[locale]/tours/page.tsx", "src/lib/tours-data.ts", "src/components/TourCard.tsx", "src/app/[locale]/countries/page.tsx"],
+            "libraries": [],
+            "hints": [
+              "Criar src/app/[locale]/tours/page.tsx (Server Component)",
+              "Criar src/components/ToursPageClient.tsx (Client Component com 'use client') para o filtro",
+              "generateStaticParams retorna [{locale:'pt'},{locale:'en'}]",
+              "generateMetadata localizado: PT='Passeios de Cannabis por País | Canna Passport', EN='Cannabis Tours by Country | Canna Passport'",
+              "ToursPageClient recebe: allTours: Tour[], locale: string, countries: {slug, name}[] para o dropdown",
+              "ToursPageClient usa useSearchParams() para ler ?country=slug e router.replace para atualizar",
+              "Filtro: dropdown ou tabs com bandeirinha + nome do país",
+              "Grid de TourCard 2 colunas (md:3 colunas)",
+              "Disclaimer de afiliados: t('tours.disclaimer') em itálico pequeno abaixo do título",
+              "Quando filtro ativo e sem resultados: t('tours.noTours') centralizado",
+              "Países sem tours reais (type='editorial') aparecem com estilo diferente (sem botão de reserva)"
+            ]
+          },
+          "acceptance": [
+            "Rota /pt/tours e /en/tours acessíveis e geradas estaticamente",
+            "generateMetadata retorna título e description localizados",
+            "Filtro por país via URL searchParam ?country=slug funciona",
+            "Grid de TourCard renderiza corretamente",
+            "Disclaimer de afiliados visível abaixo do título da página",
+            "Estado vazio com mensagem quando filtro não tem resultados",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        },
+        {
+          "id": "F1-T5",
+          "title": "Criar ToursSection e integrar nas páginas de país",
+          "description": "Criar componente ToursSection que exibe até 3 tours destacados do país e integrá-lo na página de guia de cada país, logo abaixo do conteúdo MDX.",
+          "priority": 5,
+          "passes": false,
+          "context": {
+            "files": ["src/components/ToursSection.tsx", "src/app/[locale]/countries/[slug]/page.tsx", "src/lib/tours-data.ts", "src/components/TourCard.tsx"],
+            "libraries": [],
+            "hints": [
+              "Criar src/components/ToursSection.tsx como Server Component",
+              "Props: countrySlug: string, locale: string",
+              "Chamar getToursForCountry(countrySlug) para obter os tours",
+              "Filtrar tours.filter(t => t.highlighted) e tomar slice(0, 3) para exibir",
+              "Se nenhum tour real: exibir parágrafo editorial sem botão (usar tour do tipo 'editorial')",
+              "Se tem tours: exibir grid com TourCard compact=true",
+              "Abaixo dos cards: link 'Ver todos os passeios em [País]' → /tours?country=slug",
+              "Usar Link do @/i18n/navigation para o link de Ver todos",
+              "Integrar em src/app/[locale]/countries/[slug]/page.tsx: importar ToursSection e renderizar após o bloco MDX e antes do botão voltar",
+              "Passar slug e locale para ToursSection",
+              "Seção com título t('tours.title') e separador visual"
+            ]
+          },
+          "acceptance": [
+            "Componente src/components/ToursSection.tsx criado como Server Component",
+            "Exibe até 3 tours highlighted do país com TourCard compact=true",
+            "Quando não há tours: exibe nota editorial informativa",
+            "Link 'Ver todos' aponta para /tours?country=slug com tradução correta",
+            "Integrado em [slug]/page.tsx e visível na página de cada país",
+            "Todos os 10 países têm a seção renderizando sem erro",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        },
+        {
+          "id": "F1-T6",
+          "title": "Adicionar 'Tours' à Navbar e Footer",
+          "description": "Adicionar o link para /tours na navegação principal (desktop + mobile) e no footer.",
+          "priority": 6,
+          "passes": false,
+          "context": {
+            "files": ["src/components/Navbar.tsx", "src/components/Footer.tsx"],
+            "libraries": [],
+            "hints": [
+              "Navbar: adicionar link Tours entre Destinos e Glossário no desktop (className='cp-nav-link')",
+              "Navbar mobile: adicionar link Tours com emoji 🗺️ na lista do menu mobile",
+              "Footer: adicionar Link href='/tours' com t('footer.tours') na seção de links",
+              "Usar Link do @/i18n/navigation em ambos",
+              "Chave i18n já foi adicionada na T2: t('nav.tours') e t('footer.tours')"
+            ]
+          },
+          "acceptance": [
+            "Link 'Tours' visível na Navbar desktop entre Destinos e Glossário",
+            "Link 'Tours' visível no menu mobile da Navbar",
+            "Link 'Tours' visível no Footer na seção de links",
+            "Links usam o componente Link do @/i18n/navigation",
+            "Typecheck passa"
+          ],
+          "tests": {
+            "command": "cd ~/mbss && npm run build"
+          }
+        }
+      ]
+    }
+  ]
+}

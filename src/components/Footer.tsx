@@ -132,6 +132,10 @@ export function Footer() {
                   {t("tours")}
                   <span className="footer-arrow">→</span>
                 </Link>
+                <Link href="/hotels" className="footer-link">
+                  {t("hotels")}
+                  <span className="footer-arrow">→</span>
+                </Link>
                 <Link href="/glossary" className="footer-link">
                   {tNav("glossary")}
                   <span className="footer-arrow">→</span>

@@ -131,6 +131,9 @@ export function Navbar() {
             <Link href="/tours" className="cp-nav-link">
               {t("tours")}
             </Link>
+            <Link href="/hotels" className="cp-nav-link">
+              {t("hotels")}
+            </Link>
             <Link href="/glossary" className="cp-nav-link">
               {t("glossary")}
             </Link>
@@ -218,6 +221,15 @@ export function Navbar() {
               >
                 <span>🗺️</span>
                 {t("tours")}
+              </Link>
+              <Link
+                href="/hotels"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-3 px-3 py-3.5 rounded-xl text-base font-medium transition-colors"
+                style={{ color: "rgba(180, 218, 196, 0.75)" }}
+              >
+                <span>🏨</span>
+                {t("hotels")}
               </Link>
               <Link
                 href="/glossary"
