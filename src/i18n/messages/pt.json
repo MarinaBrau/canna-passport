@@ -2,7 +2,9 @@
   "nav": {
     "countries": "Destinos",
     "glossary": "Glossário",
-    "language": "EN"
+    "tours": "Tours",
+    "language": "EN",
+    "ageDisclaimer": "Apenas para maiores de 18 anos"
   },
   "home": {
     "hero": {
@@ -15,9 +17,16 @@
       "emailSuccess": "Inscrito com sucesso! Te avisamos quando novidades chegarem.",
       "disclaimer": "Apenas informativo. Sem spam."
     },
+    "stats": {
+      "countries": "Países guiados",
+      "languages": "Idiomas",
+      "updated": "Atualizado"
+    },
     "map": {
       "title": "Mapa de Destinos",
-      "subtitle": "Clique em um país para ver o guia completo"
+      "subtitle": "Clique em um país para ver o guia completo",
+      "globalView": "Visão Global",
+      "clickHint": "Clique num país para ver o guia"
     },
     "featured": {
       "title": "Destinos em Destaque",
@@ -46,6 +55,23 @@
     "filterLegal": "Legal",
     "filterDecriminalized": "Descriminalizado",
     "filterMedicinal": "Medicinal",
+    "filterTourist": "Turista pode comprar",
+    "continentAll": "Todos os continentes",
+    "continentAmericas": "Américas",
+    "continentEurope": "Europa",
+    "continentAsia": "Ásia",
+    "continentOceania": "Oceania",
+    "continentAfrica": "África",
+    "continentMiddleeast": "Oriente Médio",
+    "filterClear": "limpar",
+    "noResults": "Nenhum destino encontrado para esses filtros.",
+    "touristCanBuy": "✓ Turista pode comprar",
+    "touristCantBuy": "✗ Turista não pode comprar",
+    "touristCanBuyLabel": "Turista pode comprar",
+    "touristCantBuyLabel": "Sem venda para turistas",
+    "minAge": "Idade mín.",
+    "yearsOld": "anos",
+    "upTo": "Até",
     "comingSoon": "Em breve",
     "readGuide": "Ver guia"
   },
@@ -56,7 +82,31 @@
   },
   "footer": {
     "disclaimer": "Este site é um guia informativo. As leis mudam — verifique sempre as regulamentações locais antes de viajar. Não incentivamos o consumo de substâncias controladas.",
-    "ageWarning": "+19 anos",
+    "tagline": "Seu guia definitivo para o turismo de cannabis legal.",
+    "guides": "Guias",
+    "destinations": "Destinos",
+    "glossary": "Glossário",
+    "tours": "Tours",
+    "ageWarning": "+18 anos",
     "rights": "Todos os direitos reservados."
+  },
+  "tours": {
+    "title": "Passeios e Experiências",
+    "subtitle": "Experiências de cannabis disponíveis para turistas em cada destino",
+    "bookOn": "Reservar em",
+    "viewAll": "Ver todos os passeios",
+    "noTours": "Sem passeios específicos disponíveis para turistas neste destino.",
+    "disclaimer": "Podemos receber comissão em reservas feitas via nossos links, sem custo adicional para você.",
+    "filterAll": "Todos os países",
+    "types": {
+      "walking-tour": "Tour a pé",
+      "farm-tour": "Tour na fazenda",
+      "dispensary-tour": "Tour de dispensário",
+      "boat-tour": "Passeio de barco",
+      "cooking-class": "Aula de culinária",
+      "wellness": "Bem-estar",
+      "museum": "Museu",
+      "editorial": "Dica editorial"
+    }
   }
 }

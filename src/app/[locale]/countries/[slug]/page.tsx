@@ -4,9 +4,10 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllCountrySlugs, getCountryContent } from "@/lib/countries";
 import { Link } from "@/i18n/navigation";
+import { ToursSection } from "@/components/ToursSection";
 import type { Metadata } from "next";
 
-const BASE_URL = "https://cannapassport.com";
+const BASE_URL = "https://www.canna-passport.com";
 
 // ─── Static params ──────────────────────────────────────────────────────────
 
@@ -278,6 +279,9 @@ export default async function CountryPage({
                 </dl>
               </section>
             )}
+
+            {/* Tours section */}
+            <ToursSection countrySlug={slug} locale={locale} />
 
             {/* Footer note */}
             <div className="mt-10 pt-6 border-t border-zinc-100 text-xs text-zinc-400">

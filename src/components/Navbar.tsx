@@ -128,6 +128,9 @@ export function Navbar() {
             <Link href="/countries" className="cp-nav-link">
               {t("countries")}
             </Link>
+            <Link href="/tours" className="cp-nav-link">
+              {t("tours")}
+            </Link>
             <Link href="/glossary" className="cp-nav-link">
               {t("glossary")}
             </Link>
@@ -150,7 +153,7 @@ export function Navbar() {
                 className="text-[9px] font-black tracking-tight leading-none"
                 style={{ color: "rgba(0, 217, 122, 0.88)" }}
               >
-                19+
+                18+
               </span>
             </div>
 
@@ -208,6 +211,15 @@ export function Navbar() {
                 {t("countries")}
               </Link>
               <Link
+                href="/tours"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-3 px-3 py-3.5 rounded-xl text-base font-medium transition-colors"
+                style={{ color: "rgba(180, 218, 196, 0.75)" }}
+              >
+                <span>🗺️</span>
+                {t("tours")}
+              </Link>
+              <Link
                 href="/glossary"
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-3 px-3 py-3.5 rounded-xl text-base font-medium transition-colors"
@@ -223,7 +235,7 @@ export function Navbar() {
                   color: "rgba(160,200,176,0.40)",
                 }}
               >
-                Apenas para maiores de 19 anos
+                {t("ageDisclaimer")}
               </div>
             </div>
           </div>

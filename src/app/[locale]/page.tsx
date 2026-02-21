@@ -62,7 +62,7 @@ export default async function HomePage({
     <>
       <Navbar />
       <Hero />
-      <MapPlaceholder />
+      <MapPlaceholder locale={locale} />
       <FeaturedDestinations locale={locale} />
       <HowItWorks />
       <Footer />

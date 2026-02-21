@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
   weight: ["400", "700", "900"],
 });
 
-const BASE_URL = "https://cannapassport.com";
+const BASE_URL = "https://www.canna-passport.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

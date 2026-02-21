@@ -33,6 +33,7 @@ interface Props {
 export function FeaturedDestinations({ locale }: Props) {
   const t = useTranslations("home.featured");
   const tLegal = useTranslations("legal");
+  const tCountries = useTranslations("countries");
   const countries = getAllCountries(locale).slice(0, 8);
 
   return (
@@ -210,7 +211,7 @@ export function FeaturedDestinations({ locale }: Props) {
                   <div className="mt-2.5 space-y-1.5 flex-1">
                     {country.minAge && (
                       <p className="text-sm" style={{ color: "rgba(160, 200, 176, 0.65)" }}>
-                        Idade mín.{" "}
+                        {tCountries("minAge")}{" "}
                         <span className="font-semibold" style={{ color: "rgba(223,240,232,0.88)" }}>
                           {country.minAge}+
                         </span>
@@ -231,7 +232,7 @@ export function FeaturedDestinations({ locale }: Props) {
                               strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </span>
-                        Turista pode comprar
+                        {tCountries("touristCanBuyLabel")}
                       </p>
                     ) : (
                       <p
@@ -248,7 +249,7 @@ export function FeaturedDestinations({ locale }: Props) {
                               stroke="rgba(248,113,113,0.85)" strokeWidth="1.5" strokeLinecap="round" />
                           </svg>
                         </span>
-                        Sem venda para turistas
+                        {tCountries("touristCantBuyLabel")}
                       </p>
                     )}
                   </div>

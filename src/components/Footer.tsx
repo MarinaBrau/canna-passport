@@ -103,7 +103,7 @@ export function Footer() {
                 className="text-sm font-medium mb-3"
                 style={{ color: "rgba(160, 200, 176, 0.50)" }}
               >
-                Seu guia definitivo para o turismo de cannabis legal.
+                {t("tagline")}
               </p>
 
               <p
@@ -120,15 +120,19 @@ export function Footer() {
                 className="text-[10px] font-bold uppercase tracking-[0.22em] block mb-5"
                 style={{ color: "rgba(0, 217, 122, 0.45)" }}
               >
-                Guias
+                {t("guides")}
               </span>
               <div className="flex flex-col text-sm">
                 <Link href="/countries" className="footer-link">
-                  Destinos
+                  {t("destinations")}
+                  <span className="footer-arrow">→</span>
+                </Link>
+                <Link href="/tours" className="footer-link">
+                  {t("tours")}
                   <span className="footer-arrow">→</span>
                 </Link>
                 <Link href="/glossary" className="footer-link">
-                  Glossário
+                  {t("glossary")}
                   <span className="footer-arrow">→</span>
                 </Link>
               </div>
@@ -152,7 +156,7 @@ export function Footer() {
                 border: "1.5px dashed rgba(0, 217, 122, 0.28)",
                 background: "rgba(0, 217, 122, 0.03)",
               }}
-              aria-label="Conteúdo para maiores de 19 anos"
+              aria-label="Conteúdo para maiores de 18 anos"
             >
               <span
                 className="text-[10px] font-black uppercase tracking-widest"

@@ -2,7 +2,9 @@
   "nav": {
     "countries": "Destinations",
     "glossary": "Glossary",
-    "language": "PT"
+    "tours": "Tours",
+    "language": "PT",
+    "ageDisclaimer": "Adults 18+ only"
   },
   "home": {
     "hero": {
@@ -15,9 +17,16 @@
       "emailSuccess": "Subscribed! We'll notify you when new content arrives.",
       "disclaimer": "Informational only. No spam."
     },
+    "stats": {
+      "countries": "Countries covered",
+      "languages": "Languages",
+      "updated": "Updated"
+    },
     "map": {
       "title": "Destination Map",
-      "subtitle": "Click a country to see the full guide"
+      "subtitle": "Click a country to see the full guide",
+      "globalView": "Global View",
+      "clickHint": "Click a country to read the guide"
     },
     "featured": {
       "title": "Featured Destinations",
@@ -46,6 +55,23 @@
     "filterLegal": "Legal",
     "filterDecriminalized": "Decriminalized",
     "filterMedicinal": "Medicinal",
+    "filterTourist": "Tourist-friendly only",
+    "continentAll": "All continents",
+    "continentAmericas": "Americas",
+    "continentEurope": "Europe",
+    "continentAsia": "Asia",
+    "continentOceania": "Oceania",
+    "continentAfrica": "Africa",
+    "continentMiddleeast": "Middle East",
+    "filterClear": "clear",
+    "noResults": "No destinations found for these filters.",
+    "touristCanBuy": "✓ Tourists can buy",
+    "touristCantBuy": "✗ Tourists cannot buy",
+    "touristCanBuyLabel": "Tourists can buy",
+    "touristCantBuyLabel": "No tourist sales",
+    "minAge": "Min. age",
+    "yearsOld": "years old",
+    "upTo": "Up to",
     "comingSoon": "Coming soon",
     "readGuide": "Read guide"
   },
@@ -56,7 +82,31 @@
   },
   "footer": {
     "disclaimer": "This site is an informational guide. Laws change — always verify local regulations before traveling. We do not encourage the consumption of controlled substances.",
-    "ageWarning": "19+ only",
+    "tagline": "Your definitive guide to legal cannabis tourism.",
+    "guides": "Guides",
+    "destinations": "Destinations",
+    "glossary": "Glossary",
+    "tours": "Tours",
+    "ageWarning": "18+ only",
     "rights": "All rights reserved."
+  },
+  "tours": {
+    "title": "Tours & Experiences",
+    "subtitle": "Cannabis experiences available for tourists in each destination",
+    "bookOn": "Book on",
+    "viewAll": "See all tours",
+    "noTours": "No specific cannabis tours available for tourists in this destination.",
+    "disclaimer": "We may earn a commission on bookings made via our links, at no extra cost to you.",
+    "filterAll": "All countries",
+    "types": {
+      "walking-tour": "Walking Tour",
+      "farm-tour": "Farm Tour",
+      "dispensary-tour": "Dispensary Tour",
+      "boat-tour": "Boat Tour",
+      "cooking-class": "Cooking Class",
+      "wellness": "Wellness",
+      "museum": "Museum",
+      "editorial": "Editorial Note"
+    }
   }
 }

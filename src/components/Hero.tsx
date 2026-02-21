@@ -4,14 +4,15 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useState } from "react";
 
-const STATS = [
-  { value: "5", label: "Países guiados" },
-  { value: "2", label: "Idiomas" },
-  { value: "2026", label: "Atualizado" },
-];
-
 export function Hero() {
   const t = useTranslations("home.hero");
+  const tStats = useTranslations("home.stats");
+
+  const STATS = [
+    { value: "10", label: tStats("countries") },
+    { value: "2", label: tStats("languages") },
+    { value: "2026", label: tStats("updated") },
+  ];
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(false);

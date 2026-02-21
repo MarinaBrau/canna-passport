@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllCountrySlugs, getCountryContent } from "@/lib/countries";
 
-const BASE_URL = "https://cannapassport.com";
+const BASE_URL = "https://www.canna-passport.com";
 const LOCALES = ["pt", "en"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -54,5 +54,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
   });
 
-  return [...homepageEntries, ...countriesListEntries, ...countryEntries];
+  const toursEntries: MetadataRoute.Sitemap = LOCALES.map((locale) => ({
+    url: `${BASE_URL}/${locale}/tours`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+    alternates: {
+      languages: {
+        pt: `${BASE_URL}/pt/tours`,
+        en: `${BASE_URL}/en/tours`,
+      },
+    },
+  }));
+
+  return [...homepageEntries, ...countriesListEntries, ...toursEntries, ...countryEntries];
 }
