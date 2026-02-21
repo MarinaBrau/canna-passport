@@ -80,6 +80,12 @@
     "decriminalized": "Descriminalizado",
     "medicinal": "Medicinal"
   },
+  "cookies": {
+    "message": "Usamos cookies de análise (Google Analytics) para entender como o site é usado. Nenhum cookie é colocado sem seu consentimento.",
+    "accept": "Aceitar",
+    "reject": "Recusar",
+    "learnMore": "Política de Privacidade"
+  },
   "footer": {
     "disclaimer": "Este site é um guia informativo. As leis mudam — verifique sempre as regulamentações locais antes de viajar. Não incentivamos o consumo de substâncias controladas.",
     "tagline": "Seu guia definitivo para o turismo de cannabis legal.",
@@ -88,7 +94,10 @@
     "glossary": "Glossário",
     "tours": "Tours",
     "ageWarning": "+18 anos",
-    "rights": "Todos os direitos reservados."
+    "rights": "Todos os direitos reservados.",
+    "legal": "Legal",
+    "privacy": "Privacidade",
+    "terms": "Termos de Uso"
   },
   "tours": {
     "title": "Passeios e Experiências",

@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
 
   return (
     <>
@@ -73,7 +74,7 @@ export function Footer() {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-14">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             {/* Brand */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
@@ -114,7 +115,7 @@ export function Footer() {
               </p>
             </div>
 
-            {/* Links */}
+            {/* Links — Guias */}
             <div>
               <span
                 className="text-[10px] font-bold uppercase tracking-[0.22em] block mb-5"
@@ -132,7 +133,27 @@ export function Footer() {
                   <span className="footer-arrow">→</span>
                 </Link>
                 <Link href="/glossary" className="footer-link">
-                  {t("glossary")}
+                  {tNav("glossary")}
+                  <span className="footer-arrow">→</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Links — Legal */}
+            <div>
+              <span
+                className="text-[10px] font-bold uppercase tracking-[0.22em] block mb-5"
+                style={{ color: "rgba(0, 217, 122, 0.45)" }}
+              >
+                {t("legal")}
+              </span>
+              <div className="flex flex-col text-sm">
+                <Link href="/privacy" className="footer-link">
+                  {t("privacy")}
+                  <span className="footer-arrow">→</span>
+                </Link>
+                <Link href="/terms" className="footer-link">
+                  {t("terms")}
                   <span className="footer-arrow">→</span>
                 </Link>
               </div>

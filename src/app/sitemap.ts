@@ -67,5 +67,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
-  return [...homepageEntries, ...countriesListEntries, ...toursEntries, ...countryEntries];
+  const legalEntries: MetadataRoute.Sitemap = (["privacy", "terms"] as const).flatMap(
+    (slug) =>
+      LOCALES.map((locale) => ({
+        url: `${BASE_URL}/${locale}/${slug}`,
+        lastModified: new Date("2026-02-21"),
+        changeFrequency: "yearly" as const,
+        priority: 0.3,
+        alternates: {
+          languages: {
+            pt: `${BASE_URL}/pt/${slug}`,
+            en: `${BASE_URL}/en/${slug}`,
+          },
+        },
+      }))
+  );
+
+  return [...homepageEntries, ...countriesListEntries, ...toursEntries, ...countryEntries, ...legalEntries];
 }
