@@ -44,45 +44,62 @@ export function ToursPageClient({ allTours, locale, countries }: Props) {
       <style>{`
         .tours-select {
           appearance: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(0,217,122,0.55)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(0,217,122,0.8)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
-          background-position: right 12px center;
-          padding-right: 36px !important;
+          background-position: right 14px center;
+          padding-right: 40px !important;
           cursor: pointer;
-          transition: border-color 0.2s, background-color 0.2s;
+          transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
         }
-        .tours-select:hover, .tours-select:focus {
-          border-color: rgba(0,217,122,0.38) !important;
-          background-color: rgba(0,217,122,0.05) !important;
+        .tours-select:hover {
+          border-color: rgba(0,217,122,0.5) !important;
+          background-color: rgba(0,217,122,0.06) !important;
+        }
+        .tours-select:focus {
+          border-color: rgba(0,217,122,0.6) !important;
+          background-color: rgba(0,217,122,0.06) !important;
+          box-shadow: 0 0 0 3px rgba(0,217,122,0.12);
           outline: none;
         }
         .tours-select option {
-          background: #04090a;
+          background: #081510;
           color: #dff0e8;
         }
       `}</style>
 
       {/* Filter */}
       <div style={{ marginBottom: "32px" }}>
+        <label
+          style={{
+            display: "block",
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "rgba(0,217,122,0.7)",
+            marginBottom: "8px",
+          }}
+        >
+          {t("filterAll")}
+        </label>
         <select
           className="tours-select"
           value={selectedCountry}
           onChange={handleCountryChange}
           style={{
-            background: "rgba(8,18,10,0.85)",
-            border: "1px solid rgba(0,217,122,0.15)",
+            background: "rgba(12,24,16,0.95)",
+            border: "1px solid rgba(0,217,122,0.35)",
             borderRadius: "10px",
-            color: selectedCountry ? "#dff0e8" : "rgba(160,200,176,0.55)",
+            color: "#dff0e8",
             fontSize: "14px",
-            padding: "10px 14px",
-            minWidth: "220px",
+            padding: "11px 14px",
+            minWidth: "260px",
           }}
-          aria-label={t("filterAll")}
         >
           <option value="">{t("filterAll")}</option>
           {countries.map((c) => (
             <option key={c.slug} value={c.slug}>
-              {c.flag} {c.name}
+              {c.name}
             </option>
           ))}
         </select>
