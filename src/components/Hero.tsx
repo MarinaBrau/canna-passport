@@ -5,13 +5,6 @@ import { Link } from "@/i18n/navigation";
 
 export function Hero() {
   const t = useTranslations("home.hero");
-  const tStats = useTranslations("home.stats");
-
-  const STATS = [
-    { value: "10", label: tStats("countries") },
-    { value: "2", label: tStats("languages") },
-    { value: "2026", label: tStats("updated") },
-  ];
   return (
     <>
       <style>{`
@@ -89,13 +82,6 @@ export function Hero() {
         }
         .hero-email-form.focused {
           box-shadow: 0 0 0 1px rgba(0, 217, 122, 0.35), 0 0 24px rgba(0, 217, 122, 0.12);
-        }
-
-        /* Stats strip */
-        .hero-stat-divider {
-          width: 1px;
-          height: 24px;
-          background: rgba(0, 217, 122, 0.18);
         }
 
         /* Decorative corner stamp */
@@ -276,31 +262,6 @@ export function Hero() {
             </Link>
           </div>
 
-          {/* Stats strip */}
-          <div
-            className="hero-el-4 flex items-center gap-5 sm:gap-8"
-            aria-label="Estatísticas do guia"
-          >
-            {STATS.map((stat, i) => (
-              <div key={stat.label} className="flex items-center gap-5 sm:gap-8">
-                {i > 0 && <div className="hero-stat-divider" aria-hidden />}
-                <div className="text-center">
-                  <div
-                    className="font-display font-bold leading-none"
-                    style={{ fontSize: "1.5rem", color: "#00d97a" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    className="text-[10px] uppercase tracking-[0.12em] mt-1"
-                    style={{ color: "rgba(180, 220, 200, 0.75)" }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
 
         </div>
 
