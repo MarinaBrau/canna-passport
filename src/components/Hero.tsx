@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { useState } from "react";
 
 export function Hero() {
   const t = useTranslations("home.hero");
@@ -13,17 +12,6 @@ export function Hero() {
     { value: "2", label: tStats("languages") },
     { value: "2026", label: tStats("updated") },
   ];
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [focused, setFocused] = useState(false);
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email)) return;
-    setSubmitted(true);
-  }
-
   return (
     <>
       <style>{`
@@ -327,70 +315,6 @@ export function Hero() {
             ))}
           </div>
 
-          {/* Email waitlist */}
-          <div className="hero-el-5 w-full max-w-md">
-            {submitted ? (
-              <div
-                role="status"
-                aria-live="polite"
-                className="text-sm font-medium px-5 py-3.5 rounded-2xl text-center"
-                style={{
-                  background: "rgba(0, 217, 122, 0.09)",
-                  border: "1px solid rgba(0, 217, 122, 0.22)",
-                  color: "#00d97a",
-                }}
-              >
-                ✓ {t("emailSuccess")}
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                noValidate
-                className={`hero-email-form flex gap-2 p-1.5 rounded-full ${focused ? "focused" : ""}`}
-                style={{
-                  background: "rgba(255, 255, 255, 0.08)",
-                  border: "1px solid rgba(255, 255, 255, 0.18)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                <label htmlFor="hero-email" className="sr-only">
-                  Seu endereço de e-mail
-                </label>
-                <input
-                  id="hero-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onFocus={() => setFocused(true)}
-                  onBlur={() => setFocused(false)}
-                  placeholder={t("emailPlaceholder")}
-                  className="flex-1 bg-transparent px-4 text-sm outline-none"
-                  style={{
-                    color: "rgba(223, 240, 232, 0.92)",
-                    caretColor: "#00d97a",
-                  }}
-                  autoComplete="email"
-                />
-                <button
-                  type="submit"
-                  className="px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-opacity duration-200 hover:opacity-88"
-                  style={{
-                    background: "linear-gradient(135deg, #00d97a 0%, #008f51 100%)",
-                    color: "#fff",
-                    minHeight: "36px",
-                  }}
-                >
-                  {t("emailButton")}
-                </button>
-              </form>
-            )}
-            <p
-              className="text-[11px] text-center mt-2"
-              style={{ color: "rgba(160, 200, 176, 0.55)" }}
-            >
-              {t("disclaimer")}
-            </p>
-          </div>
         </div>
 
         {/* Scroll indicator */}
