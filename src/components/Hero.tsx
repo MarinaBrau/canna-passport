@@ -171,6 +171,7 @@ export function Hero() {
               y="18"
               width="84"
               height="84"
+              style={{ mixBlendMode: "screen" }}
             />
             <path
               d="M 16 60 A 44 44 0 0 1 104 60"

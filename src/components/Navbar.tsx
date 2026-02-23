@@ -106,7 +106,7 @@ export function Navbar() {
               alt="Canna Passport"
               width={32}
               height={32}
-              style={{ filter: "drop-shadow(0 0 8px rgba(0, 217, 122, 0.5))" }}
+              style={{ mixBlendMode: "screen", filter: "drop-shadow(0 0 8px rgba(0, 217, 122, 0.5))" }}
             />
             <span className="font-semibold tracking-tight" style={{ color: "rgba(223,240,232,0.85)", fontSize: "17px" }}>
               Canna{" "}

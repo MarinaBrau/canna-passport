@@ -83,7 +83,7 @@ export function Footer() {
                   alt="Canna Passport"
                   width={28}
                   height={28}
-                  style={{ filter: "drop-shadow(0 0 8px rgba(0, 217, 122, 0.5))" }}
+                  style={{ mixBlendMode: "screen", filter: "drop-shadow(0 0 8px rgba(0, 217, 122, 0.5))" }}
                 />
                 <span className="font-semibold" style={{ color: "rgba(223,240,232,0.80)", fontSize: "15px" }}>
                   Canna{" "}
