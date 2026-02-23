@@ -10,7 +10,7 @@
   "home": {
     "hero": {
       "tagline": "Seu guia para o turismo de cannabis legal",
-      "headline": "Explore o mundo com segurança e conhecimento",
+      "headline": "Conheça as leis. Aproveite a viagem.",
       "subheadline": "Guia completo de leis, destinos e dicas práticas para turistas em países com cannabis legal.",
       "cta": "Ver destinos",
       "emailPlaceholder": "Seu e-mail",
@@ -19,7 +19,7 @@
       "disclaimer": "Apenas informativo. Sem spam."
     },
     "stats": {
-      "countries": "Países guiados",
+      "countries": "Países cobertos",
       "languages": "Idiomas",
       "updated": "Atualizado"
     },
@@ -41,7 +41,7 @@
       },
       "step2": {
         "title": "Leia o guia",
-        "description": "Entenda as leis, limites e onde consumir com segurança."
+        "description": "Entenda as leis, os limites e como consumir com segurança."
       },
       "step3": {
         "title": "Viaje tranquilo",
@@ -82,13 +82,13 @@
     "medicinal": "Medicinal"
   },
   "cookies": {
-    "message": "Usamos cookies de análise (Google Analytics) para entender como o site é usado. Nenhum cookie é colocado sem seu consentimento.",
+    "message": "Usamos cookies de análise (Google Analytics) para entender como o site é usado. Nenhum cookie é instalado sem seu consentimento.",
     "accept": "Aceitar",
     "reject": "Recusar",
     "learnMore": "Política de Privacidade"
   },
   "footer": {
-    "disclaimer": "Este site é um guia informativo. As leis mudam — verifique sempre as regulamentações locais antes de viajar. Não incentivamos o consumo de substâncias controladas.",
+    "disclaimer": "Este site é um guia informativo. As leis mudam — verifique sempre as leis locais antes de viajar. Não incentivamos o consumo de substâncias controladas.",
     "tagline": "Seu guia definitivo para o turismo de cannabis legal.",
     "guides": "Guias",
     "destinations": "Destinos",
