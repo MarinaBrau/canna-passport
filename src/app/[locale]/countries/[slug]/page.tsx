@@ -6,6 +6,7 @@ import { getAllCountrySlugs, getCountryContent } from "@/lib/countries";
 import { Link } from "@/i18n/navigation";
 import { ToursSection } from "@/components/ToursSection";
 import { HotelsSection } from "@/components/HotelsSection";
+import { FaqSection } from "@/components/FaqSection";
 import type { Metadata } from "next";
 
 const BASE_URL = "https://www.canna-passport.com";
@@ -263,6 +264,15 @@ export default async function CountryPage({
             <div className="prose prose-zinc prose-headings:font-semibold prose-h2:text-xl prose-h2:mt-8 prose-h3:text-base prose-a:text-green-700 prose-strong:text-zinc-900 prose-blockquote:border-l-green-500 prose-blockquote:bg-green-50 prose-blockquote:py-1 prose-blockquote:not-italic prose-table:text-sm max-w-none">
               <MDXRemote source={country.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
             </div>
+
+            {/* Structured FAQ section — visual accordion (JSON-LD already injected above) */}
+            {country.faqs && country.faqs.length > 0 && (
+              <FaqSection
+                faqs={country.faqs.map(({ q, a }) => ({ question: q, answer: a }))}
+                title={isPt ? "Perguntas Frequentes" : "Frequently Asked Questions"}
+                injectJsonLd={false}
+              />
+            )}
 
             {/* Tours section */}
             <ToursSection countrySlug={slug} locale={locale} />
