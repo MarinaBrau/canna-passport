@@ -7,13 +7,13 @@
 }
 
 :root {
-  --background: #04090a;
+  --background: #0d1a18;
   --foreground: #dff0e8;
 
   /* Canna Passport tokens */
-  --cp-bg:           #04090a;
-  --cp-bg-surface:   #071208;
-  --cp-bg-elevated:  #0c1a0f;
+  --cp-bg:           #0d1a18;
+  --cp-bg-surface:   #111f17;
+  --cp-bg-elevated:  #162618;
   --cp-accent:       #00d97a;
   --cp-accent-hi:    #00ff8e;
   --cp-accent-dim:   rgba(0, 217, 122, 0.55);
