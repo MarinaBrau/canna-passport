@@ -221,7 +221,8 @@ export function Hero() {
               letterSpacing: "-0.02em",
             }}
           >
-            {t("headline")}
+            <span className="block">{t("headlineLine1")}</span>
+            <span className="block">{t("headlineLine2")}</span>
           </h1>
 
           {/* Subheadline — better contrast */}

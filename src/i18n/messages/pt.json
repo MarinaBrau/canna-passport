@@ -10,7 +10,8 @@
   "home": {
     "hero": {
       "tagline": "Seu guia para o turismo de cannabis legal",
-      "headline": "Conheça as leis. Aproveite a viagem.",
+      "headlineLine1": "Conheça as leis.",
+      "headlineLine2": "Aproveite a viagem.",
       "subheadline": "Guia completo de leis, destinos e dicas práticas para turistas em países com cannabis legal.",
       "cta": "Ver destinos",
       "emailPlaceholder": "Seu e-mail",

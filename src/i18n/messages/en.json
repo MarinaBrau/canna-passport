@@ -10,7 +10,8 @@
   "home": {
     "hero": {
       "tagline": "Your guide to legal cannabis tourism",
-      "headline": "Know the laws. Enjoy the trip.",
+      "headlineLine1": "Know the laws.",
+      "headlineLine2": "Enjoy the trip.",
       "subheadline": "A complete guide to laws, destinations and practical tips for tourists in countries with legal cannabis.",
       "cta": "See destinations",
       "emailPlaceholder": "Your email",
