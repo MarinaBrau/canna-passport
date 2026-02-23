@@ -118,7 +118,7 @@ export function Hero() {
           aria-hidden
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 0%, rgba(4, 9, 10, 0.55) 100%)",
+            background: "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 0%, rgba(4, 9, 10, 0.42) 100%)",
           }}
         />
 
