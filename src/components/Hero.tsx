@@ -165,18 +165,13 @@ export function Hero() {
           <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="60" cy="60" r="54" stroke="#00d97a" strokeWidth="1.5" strokeDasharray="4 6" />
             <circle cx="60" cy="60" r="46" stroke="#00d97a" strokeWidth="0.5" />
-            <text
-              x="50%"
-              y="44%"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="#00d97a"
-              fontSize="22"
-              fontWeight="800"
-              letterSpacing="2"
-            >
-              🌿
-            </text>
+            <image
+              href="/images/logo.png"
+              x="18"
+              y="18"
+              width="84"
+              height="84"
+            />
             <path
               d="M 16 60 A 44 44 0 0 1 104 60"
               stroke="#00d97a"

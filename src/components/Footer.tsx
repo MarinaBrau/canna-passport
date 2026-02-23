@@ -78,12 +78,13 @@ export function Footer() {
             {/* Brand */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <span
-                  className="text-xl"
-                  style={{ filter: "drop-shadow(0 0 10px rgba(0,217,122,0.6))" }}
-                >
-                  🌿
-                </span>
+                <img
+                  src="/images/logo.png"
+                  alt="Canna Passport"
+                  width={28}
+                  height={28}
+                  style={{ filter: "drop-shadow(0 0 8px rgba(0, 217, 122, 0.5))" }}
+                />
                 <span className="font-semibold" style={{ color: "rgba(223,240,232,0.80)", fontSize: "15px" }}>
                   Canna{" "}
                   <span

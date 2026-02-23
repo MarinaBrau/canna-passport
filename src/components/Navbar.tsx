@@ -101,12 +101,13 @@ export function Navbar() {
             className="flex items-center gap-2.5 select-none min-h-[44px]"
             aria-label="Canna Passport — página inicial"
           >
-            <span
-              className="text-xl leading-none"
-              style={{ filter: "drop-shadow(0 0 12px rgba(0, 217, 122, 0.7))" }}
-            >
-              🌿
-            </span>
+            <img
+              src="/images/logo.png"
+              alt="Canna Passport"
+              width={32}
+              height={32}
+              style={{ filter: "drop-shadow(0 0 8px rgba(0, 217, 122, 0.5))" }}
+            />
             <span className="font-semibold tracking-tight" style={{ color: "rgba(223,240,232,0.85)", fontSize: "17px" }}>
               Canna{" "}
               <span
