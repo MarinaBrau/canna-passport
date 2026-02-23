@@ -10,8 +10,8 @@
   "home": {
     "hero": {
       "tagline": "Your guide to legal cannabis tourism",
-      "headline": "Explore the world safely and knowledgeably",
-      "subheadline": "Complete guide to laws, destinations and practical tips for tourists in countries with legal cannabis.",
+      "headline": "Know the laws. Enjoy the trip.",
+      "subheadline": "A complete guide to laws, destinations and practical tips for tourists in countries with legal cannabis.",
       "cta": "See destinations",
       "emailPlaceholder": "Your email",
       "emailButton": "Keep me updated",
@@ -41,11 +41,11 @@
       },
       "step2": {
         "title": "Read the guide",
-        "description": "Understand the laws, limits and where to consume safely."
+        "description": "Learn the laws, the limits, and where you can safely consume."
       },
       "step3": {
         "title": "Travel with confidence",
-        "description": "Enjoy the experience knowing exactly what is allowed."
+        "description": "Enjoy the experience knowing exactly what's allowed."
       }
     }
   },
@@ -88,7 +88,7 @@
     "learnMore": "Privacy Policy"
   },
   "footer": {
-    "disclaimer": "This site is an informational guide. Laws change — always verify local regulations before traveling. We do not encourage the consumption of controlled substances.",
+    "disclaimer": "This site is an informational guide. Laws change — always verify local regulations before traveling. We don't encourage the consumption of controlled substances.",
     "tagline": "Your definitive guide to legal cannabis tourism.",
     "guides": "Guides",
     "destinations": "Destinations",
