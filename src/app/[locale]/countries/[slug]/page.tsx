@@ -11,6 +11,35 @@ import type { Metadata } from "next";
 
 const BASE_URL = "https://www.canna-passport.com";
 
+// ─── PT preposition per country slug ────────────────────────────────────────
+
+const PREP_PT: Record<string, string> = {
+  argentina:        "na",
+  australia:        "na",
+  austria:          "na",
+  belgium:          "na",
+  brazil:           "no",
+  canada:           "no",
+  colombia:         "na",
+  "czech-republic": "na",
+  france:           "na",
+  germany:          "na",
+  israel:           "em",
+  italy:            "na",
+  jamaica:          "na",
+  malta:            "em",
+  mexico:           "no",
+  morocco:          "no",
+  netherlands:      "nos",
+  peru:             "no",
+  portugal:         "em",
+  spain:            "na",
+  switzerland:      "na",
+  thailand:         "na",
+  uruguay:          "no",
+  usa:              "nos",
+};
+
 // ─── Static params ──────────────────────────────────────────────────────────
 
 export async function generateStaticParams() {
@@ -33,17 +62,18 @@ export async function generateMetadata({
   if (!country) return {};
 
   const isPt = locale === "pt";
+  const prep = PREP_PT[slug] ?? "no";
 
   // Build title
   const title = isPt
-    ? `Cannabis no ${country.name}: Guia para Turistas Brasileiros`
+    ? `Cannabis ${prep} ${country.name}: Guia para Turistas Brasileiros`
     : `Cannabis in ${country.nameEn}: Complete Tourist Guide`;
 
   // Build description: use frontmatter field if available, otherwise generate
   const description =
     country.description ??
     (isPt
-      ? `Guia completo sobre cannabis no ${country.name} para turistas. Status: ${country.legalStatus}. ${country.touristCanBuy ? "Turistas podem comprar." : "Turistas não podem comprar."} ${country.minAge ? `Idade mínima: ${country.minAge}+.` : ""}`
+      ? `Guia completo sobre cannabis ${prep} ${country.name} para turistas. Status: ${country.legalStatus}. ${country.touristCanBuy ? "Turistas podem comprar." : "Turistas não podem comprar."} ${country.minAge ? `Idade mínima: ${country.minAge}+.` : ""}`
       : `Complete cannabis guide for tourists in ${country.nameEn}. Status: ${country.legalStatus}. ${country.touristCanBuy ? "Tourists can purchase." : "Tourists cannot purchase."} ${country.minAge ? `Minimum age: ${country.minAge}+.` : ""}`);
 
   const ogImage = `/og/${slug}.jpg`;
@@ -55,6 +85,9 @@ export async function generateMetadata({
       title,
       description,
       type: "article",
+      locale: isPt ? "pt_BR" : "en_US",
+      publishedTime: country.lastUpdated,
+      modifiedTime: country.lastUpdated,
       images: [
         {
           url: ogImage,
@@ -135,6 +168,7 @@ function buildArticleSchema(
     "@type": "Article",
     headline: title,
     description,
+    datePublished: lastUpdated,
     dateModified: lastUpdated,
     url: `${BASE_URL}/${locale}/countries/${slug}`,
     publisher: {
@@ -177,15 +211,16 @@ export default async function CountryPage({
   const colors = STATUS_COLORS[country.legalStatus];
   const statusLabel = STATUS_LABELS[country.legalStatus][locale as "pt" | "en"] ?? country.legalStatus;
   const isPt = locale === "pt";
+  const prep = PREP_PT[slug] ?? "no";
 
   // Build strings for JSON-LD
   const title = isPt
-    ? `Cannabis no ${country.name}: Guia para Turistas Brasileiros`
+    ? `Cannabis ${prep} ${country.name}: Guia para Turistas Brasileiros`
     : `Cannabis in ${country.nameEn}: Complete Tourist Guide`;
   const description =
     country.description ??
     (isPt
-      ? `Guia completo sobre cannabis no ${country.name} para turistas.`
+      ? `Guia completo sobre cannabis ${prep} ${country.name} para turistas.`
       : `Complete cannabis guide for tourists in ${country.nameEn}.`);
 
   const breadcrumbSchema = buildBreadcrumbSchema(slug, locale, country.name);
@@ -239,7 +274,7 @@ export default async function CountryPage({
                     srcSet={`https://flagcdn.com/w160/${country.countryCode}.png 2x`}
                     width={56}
                     height={42}
-                    alt={`Bandeira de ${country.name}`}
+                    alt={isPt ? `Bandeira de ${country.name}` : `Flag of ${country.nameEn}`}
                     style={{ borderRadius: "5px", boxShadow: "0 2px 10px rgba(0,0,0,0.2)" }}
                   />
                 ) : (

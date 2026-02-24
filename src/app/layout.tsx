@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "Canna Passport — Guia de Turismo de Cannabis Legal",
   },
   description:
-    "Guia completo para turistas sobre cannabis legal ao redor do mundo.",
+    "Guia completo de turismo de cannabis: 24 países com leis explicadas, dicas práticas e o que turistas precisam saber antes de viajar.",
   openGraph: {
     siteName: "Canna Passport",
     type: "website",
