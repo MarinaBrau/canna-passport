@@ -15,6 +15,11 @@ const BASE_URL = "https://www.canna-passport.com";
 
 const PREP_PT: Record<string, string> = {
   argentina:        "na",
+  "costa-rica":     "na",
+  "south-africa":   "na",
+  greece:           "na",
+  luxembourg:       "no",
+  "new-zealand":    "na",
   australia:        "na",
   austria:          "na",
   belgium:          "na",

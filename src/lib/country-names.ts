@@ -1,6 +1,11 @@
 /** Static slug → localized country name map, safe for client and server use. */
 export const COUNTRY_NAMES: Record<string, { pt: string; en: string }> = {
   argentina:        { pt: "Argentina",         en: "Argentina" },
+  "costa-rica":     { pt: "Costa Rica",        en: "Costa Rica" },
+  "south-africa":   { pt: "África do Sul",     en: "South Africa" },
+  greece:           { pt: "Grécia",            en: "Greece" },
+  luxembourg:       { pt: "Luxemburgo",        en: "Luxembourg" },
+  "new-zealand":    { pt: "Nova Zelândia",     en: "New Zealand" },
   australia:        { pt: "Austrália",         en: "Australia" },
   austria:          { pt: "Áustria",           en: "Austria" },
   belgium:          { pt: "Bélgica",           en: "Belgium" },

@@ -5,6 +5,11 @@ import type { CountryMapItem } from "@/components/WorldMapClient";
 // ISO 3166-1 numeric code para cada país que temos no conteúdo
 const ISO_NUMERIC: Record<string, string> = {
   argentina:        "032",
+  "costa-rica":     "188",
+  "south-africa":   "710",
+  greece:           "300",
+  luxembourg:       "442",
+  "new-zealand":    "554",
   australia:        "036",
   austria:          "040",
   belgium:          "056",

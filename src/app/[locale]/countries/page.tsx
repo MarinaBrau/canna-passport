@@ -18,8 +18,8 @@ export async function generateMetadata({
     ? "Destinos com Cannabis Legal | Guia para Turistas"
     : "Legal Cannabis Destinations | Tourist Guide";
   const description = isPt
-    ? "24 países com cannabis legal ou descriminalizado explicados para turistas: Canadá, Holanda, Alemanha, França, Itália, República Tcheca, Argentina, Brasil e muito mais."
-    : "24 countries with legal or decriminalized cannabis explained for tourists: Canada, Netherlands, Germany, France, Italy, Czech Republic, Argentina, Brazil, and more.";
+    ? "29 países com cannabis legal ou descriminalizado explicados para turistas: Canadá, Holanda, Alemanha, França, Itália, Luxemburgo, Argentina, Nova Zelândia e muito mais."
+    : "29 countries with legal or decriminalized cannabis explained for tourists: Canada, Netherlands, Germany, France, Italy, Luxembourg, Argentina, New Zealand, and more.";
 
   return {
     title,
