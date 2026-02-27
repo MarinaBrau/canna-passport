@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -274,13 +275,13 @@ export default async function CountryPage({
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-3">
                 {country.countryCode ? (
-                  <img
+                  <Image
                     src={`https://flagcdn.com/w80/${country.countryCode}.png`}
-                    srcSet={`https://flagcdn.com/w160/${country.countryCode}.png 2x`}
                     width={56}
                     height={42}
                     alt={isPt ? `Bandeira de ${country.name}` : `Flag of ${country.nameEn}`}
                     style={{ borderRadius: "5px", boxShadow: "0 2px 10px rgba(0,0,0,0.2)" }}
+                    priority
                   />
                 ) : (
                   <span className="text-5xl" role="img" aria-label={`Bandeira de ${country.name}`}>

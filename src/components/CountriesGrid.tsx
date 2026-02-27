@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { CountryMeta } from "@/lib/countries";
@@ -194,14 +195,13 @@ export function CountriesGrid({ countries }: { countries: CountryMeta[] }) {
               >
                 <div className="flex items-start justify-between mb-3">
                   {country.countryCode ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                       src={`https://flagcdn.com/48x36/${country.countryCode}.png`}
-                      srcSet={`https://flagcdn.com/96x72/${country.countryCode}.png 2x`}
                       width={48}
                       height={36}
                       alt={`Bandeira ${country.name}`}
                       className="rounded-sm object-cover"
+                      loading="lazy"
                     />
                   ) : (
                     <span className="text-4xl">{country.flag}</span>

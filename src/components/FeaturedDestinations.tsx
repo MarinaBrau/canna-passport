@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getAllCountries } from "@/lib/countries";
@@ -169,13 +170,13 @@ export function FeaturedDestinations({ locale }: Props) {
                   <div className="flex items-start justify-between mb-5">
                     <span className="dest-flag leading-none" style={{ fontSize: 0 }}>
                       {country.countryCode ? (
-                        <img
+                        <Image
                           src={`https://flagcdn.com/w80/${country.countryCode}.png`}
-                          srcSet={`https://flagcdn.com/w160/${country.countryCode}.png 2x`}
                           width={48}
                           height={36}
                           alt={`Bandeira de ${country.name}`}
                           style={{ borderRadius: "4px", boxShadow: "0 2px 8px rgba(0,0,0,0.35)" }}
+                          loading="lazy"
                         />
                       ) : (
                         <span
