@@ -8,6 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { ToursSection } from "@/components/ToursSection";
 import { HotelsSection } from "@/components/HotelsSection";
 import { FaqSection } from "@/components/FaqSection";
+import { NewsSection } from "@/components/NewsSection";
 import type { Metadata } from "next";
 
 const BASE_URL = "https://www.canna-passport.com";
@@ -320,6 +321,9 @@ export default async function CountryPage({
 
             {/* Hotels section */}
             <HotelsSection countrySlug={slug} locale={locale} />
+
+            {/* News section */}
+            <NewsSection slug={slug} locale={locale} />
 
             {/* Footer note */}
             <div className="mt-10 pt-6 border-t border-zinc-100 text-xs text-zinc-400">

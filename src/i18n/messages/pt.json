@@ -122,6 +122,10 @@
       "editorial": "Dica editorial"
     }
   },
+  "news": {
+    "title": "Últimas Notícias",
+    "via": "Via NewsAPI"
+  },
   "hotels": {
     "title": "Hotéis Cannabis-Friendly",
     "subtitle": "Hospedagem cannabis-friendly em cada destino",
