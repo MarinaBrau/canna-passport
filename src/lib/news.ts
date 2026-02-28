@@ -37,11 +37,11 @@ const COUNTRY_NAME_MAP: Record<string, string> = {
 };
 
 export async function fetchCountryNews(slug: string): Promise<NewsArticle[]> {
-  const apiKey = process.env.NEWS_API_KEY;
+  const apiKey = process.env.GNEWS_API_KEY;
   if (!apiKey) return [];
 
   const countryName = COUNTRY_NAME_MAP[slug] ?? slug;
-  const url = `https://newsapi.org/v2/everything?q=cannabis+${encodeURIComponent(countryName)}&language=en&pageSize=5&sortBy=publishedAt&apiKey=${apiKey}`;
+  const url = `https://gnews.io/api/v4/search?q=cannabis+${encodeURIComponent(countryName)}&lang=en&max=5&sortby=publishedAt&apikey=${apiKey}`;
 
   try {
     const res = await fetch(url, { next: { revalidate: 86400 } });
@@ -58,7 +58,7 @@ export async function fetchCountryNews(slug: string): Promise<NewsArticle[]> {
       url: a.url,
       publishedAt: a.publishedAt,
       description: a.description,
-      source: a.source?.name ?? "NewsAPI",
+      source: a.source?.name ?? "GNews",
     }));
   } catch {
     return [];
