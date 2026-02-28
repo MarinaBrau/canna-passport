@@ -37,29 +37,39 @@ const COUNTRY_NAME_MAP: Record<string, string> = {
 };
 
 export async function fetchCountryNews(slug: string): Promise<NewsArticle[]> {
-  const apiKey = process.env.GNEWS_API_KEY;
-  if (!apiKey) return [];
-
   const countryName = COUNTRY_NAME_MAP[slug] ?? slug;
-  const url = `https://gnews.io/api/v4/search?q=cannabis+${encodeURIComponent(countryName)}&lang=en&max=5&sortby=publishedAt&apikey=${apiKey}`;
+  const query = encodeURIComponent(`cannabis ${countryName}`);
+  const url = `https://news.google.com/rss/search?q=${query}&hl=en-US&gl=US&ceid=US:en`;
 
   try {
     const res = await fetch(url, { next: { revalidate: 86400 } });
     if (!res.ok) return [];
-    const data = await res.json();
-    return (data.articles ?? []).map((a: {
-      title: string;
-      url: string;
-      publishedAt: string;
-      description: string | null;
-      source: { name?: string };
-    }) => ({
-      title: a.title,
-      url: a.url,
-      publishedAt: a.publishedAt,
-      description: a.description,
-      source: a.source?.name ?? "GNews",
-    }));
+
+    const xml = await res.text();
+    const items = xml.match(/<item>([\s\S]*?)<\/item>/g) ?? [];
+
+    return items.slice(0, 5).flatMap((item) => {
+      const titleMatch =
+        item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/) ??
+        item.match(/<title>(.*?)<\/title>/);
+      const linkMatch = item.match(/<link>(.*?)<\/link>/);
+      const pubDateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
+      const sourceMatch = item.match(/<source[^>]*>([\s\S]*?)<\/source>/);
+
+      const rawTitle = titleMatch?.[1] ?? "";
+      const link = linkMatch?.[1] ?? "";
+      if (!rawTitle || !link) return [];
+
+      // Google News title format: "Article title - Source Name"
+      const sourceFromTitle = rawTitle.match(/ - ([^-]+)$/)?.[1]?.trim() ?? "";
+      const title = rawTitle.replace(/ - [^-]+$/, "").trim();
+      const source = sourceMatch?.[1]?.trim() || sourceFromTitle || "Google News";
+      const pubDate = pubDateMatch?.[1]
+        ? new Date(pubDateMatch[1]).toISOString()
+        : new Date().toISOString();
+
+      return [{ title, url: link, publishedAt: pubDate, description: null, source }];
+    });
   } catch {
     return [];
   }
